@@ -1,0 +1,23 @@
+{
+  "name": "simple-di",
+  "version": "0.0.1",
+  "description": "A simple IoC container builder",
+  "main": "dist/index.js",
+  "repository": "ssh://git@github.com/Tosuke/simple-di.git",
+  "author": "Tosuke <tasukeprg@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "jest --watch",
+    "test": "jest",
+    "fmt": "prettier --write 'src/**/*.ts' '*.{js,json}'",
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "devDependencies": {
+    "@tosuke/prettier-config": "^1.0.1",
+    "@types/jest": "^23.3.10",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.2.1"
+  }
+}
