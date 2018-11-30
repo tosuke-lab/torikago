@@ -1,8 +1,9 @@
 {
-  "name": "simple-di",
+  "name": "torikago",
   "version": "0.0.1",
   "description": "A simple IoC container builder",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "repository": "ssh://git@github.com/Tosuke/simple-di.git",
   "author": "Tosuke <tasukeprg@gmail.com>",
   "license": "MIT",
