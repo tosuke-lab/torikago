@@ -14,11 +14,11 @@
     "build": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
-    "@tosuke/prettier-config": "^1.0.1",
-    "@types/jest": "^23.3.10",
-    "jest": "^23.6.0",
-    "prettier": "^1.15.3",
-    "ts-jest": "^23.10.5",
-    "typescript": "^3.2.1"
+    "@tosuke/prettier-config": "1.0.1",
+    "@types/jest": "23.3.10",
+    "jest": "23.6.0",
+    "prettier": "1.15.3",
+    "ts-jest": "23.10.5",
+    "typescript": "3.2.1"
   }
 }
