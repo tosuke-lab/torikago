@@ -1,10 +1,15 @@
 {
   "name": "torikago",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "A simple IoC container builder",
   "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
-  "repository": "ssh://git@github.com/Tosuke/simple-di.git",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "package.json",
+    "README.md",
+    "dist/**/*.*"
+  ],
+  "repository": "https://github.com/Tosuke/torikago.git",
   "author": "Tosuke <tasukeprg@gmail.com>",
   "license": "MIT",
   "scripts": {
