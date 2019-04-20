@@ -4,9 +4,9 @@ const factoriesSym = Symbol()
 const resolutionStack = Symbol()
 const uninitialized = Symbol()
 
-export type Factoralize<Container> = { [K in keyof Container]: (c: Container) => Container[K] }
+export type Factoralize<Container, SubContainer = Container> = { [K in keyof SubContainer]: (c: Container) => SubContainer[K] }
 
-export function build<Container>(factories: Factoralize<Container>): Container {
+export function build<Container>(factories: Factoralize<Container, Container>): Container {
   let obj: any = {
     [factoriesSym]: factories,
     [resolutionStack]: []
