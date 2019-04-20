@@ -2,10 +2,13 @@
 
 Extremely simple **Inversion of Control(IoC)** Container for JS.
 
+## How to Install
+`$ npm install torikago`
+
 ## Usage
 
 ```typescript
-import { build, asValue, asClass } from 'torikago'
+import { build } from 'torikago'
 
 interface Config {
   connectionURL: string
@@ -25,11 +28,7 @@ class Database {
 }
 
 class UserService {
-  private db: Database
-
-  constructor({ database }: { database: Database }) {
-    this.db = database
-  }
+  constructor(private db: Database) {}
 
   async getUserById(id: string): Promise<User | null> {
     return await db.query(`select * from users where id=${id}`)
@@ -37,11 +36,7 @@ class UserService {
 }
 
 class UserController {
-  private userService: UserService
-
-  constructor({ userService }: { userService: UserService }) {
-    this.userService = userService
-  }
+  constructor(private userService: UserService) {}
 
   async getUser(ctx: Context): Promise<User | null> {
     return await this.userService.getUserById(ctx.params.id)
@@ -61,10 +56,10 @@ const config: Config = {
 }
 
 const container = build<Container>({
-  config: asValue(config),
+  config: () => config,
   database: ({ config }) => new Database(config.connectionURL, config.timeout),
-  userService: asClass(UserService),
-  userController: asClass(UserController)
+  userService: ({ database }) => new UserService(database),
+  userController: ({ userService }) => new UserController(userService)
 })
 
 router.get('/api/users/:id', container.userController.getUser)
