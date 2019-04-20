@@ -1,4 +1,4 @@
-import { build, asClass } from '../index'
+import { build } from '../index'
 import { CyclicDependencyError } from '../errors'
 
 class Database {
@@ -26,7 +26,7 @@ interface Container {
 test('Container resolves dependencies', () => {
   const container = build<Container>({
     db: () => new Database(),
-    service: asClass(Service)
+    service: ({ db }) => new Service({ db })
   })
   const service = container.service
   expect(service.getItems()).toEqual(['hoge', 'piyo'])
