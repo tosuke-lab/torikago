@@ -15,12 +15,16 @@
   "scripts": {
     "dev": "jest --watch",
     "test": "jest",
+    "coverage": "jest --coverage",
+    "typecheck": "tsc --noEmit",
     "fmt": "prettier --write 'src/**/*.ts' '*.{js,json}'",
-    "build": "tsc -p tsconfig.build.json"
+    "build": "tsc -p tsconfig.build.json",
+    "codecov": "codecov"
   },
   "devDependencies": {
     "@tosuke/prettier-config": "1.0.1",
     "@types/jest": "23.3.10",
+    "codecov": "3.3.0",
     "jest": "23.6.0",
     "prettier": "1.15.3",
     "ts-jest": "23.10.5",
